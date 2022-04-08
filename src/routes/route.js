@@ -35,11 +35,21 @@ router.get('/hello', function (req, res) {
     console.log('out put after using tail in lodash: ', output)
 
     //problem 3
-    let a = [1, 2, 6, 4, 5]
-    let b = [1, 5, 3, 2, 7]
-    let c = [7, 3, 11]
-    let d = [12, 5, 6, 17]
-    let e
+    let a = [1, 2, 6, 4, 5];
+    let b = [1, 5, 3, 2, 7];
+    let c = [7, 3, 11];
+    let d = [12, 5, 6, 17];
+    let e = [7, 1, 3, 4];
+
+    let union = lodash.union(a, b, c, d, e)
+    console.log('Union of given Arrays is: ', union)
+
+    //problem 4
+    let movieArray = [["horror","The Shining"],["drama","Titanic"],["thriller","Shutter Island"],["fantasy","Pans Labyrinth"]]
+    let answer = lodash.fromPairs(movieArray)
+
+    console.log('This is the object of genre and movie: ', answer)
+
 
 
     res.send('This is another api')

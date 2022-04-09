@@ -1,74 +1,31 @@
-const express = require('express');
+const express = require("express");
 
 const router = express.Router();
 
-router.get('/movies', function (req, res) {
-    let movies = ['rand de basnasti', 'the shining', 'lord of the rings', 'bartman begins']
-
-    res.send(movies)
-})
-
-router.get('/movies/:indexNumber', function (req, res) {
-    let movies = ['rand de basnasti', 'the shining', 'lord of the rings', 'bartman begins']
-    const i = req.params.indexNumber
-
-    if(i<movies.length){
-        res.send(movies[i])
-    } else {
-        'Enter a valid indexNumber'
+let players = [
+  {
+    name: "manish",
+    dob: "1/1/1995",
+    gender: "male",
+    city: "jalandhar",
+    sports: ["swimming"],
+  },
+];
+router.post("/players", function (req, res) {
+  for (let i = 0; i < players.length; i++) {
+    if (players[i].name == req.body.name) {
+      return res.send("Player with this name already exists");
     }
-})
+  }
 
-router.get('/films', function (req, res) {
-    
-    let films = [ {
-        "id": 1,
-        "name": "The Shining"
-       }, {
-        "id": 2,
-        "name": "Incendies"
-       }, {
-        "id": 3,
-        "name": "Rang de Basanti"
-       }, {
-        "id": 4,
-        "name": "Finding Nemo"
-       }]
+  let user = req.body;
 
-       
-           res.send(films)
+  players.push(user);
+  console.log(players);
 
-})
-
-router.get('/films/:filmId', function (req, res) {
-    let id = req.params.filmId
-    let i = id-1
-    let films = [ {
-        "id": 1,
-        "name": "The Shining"
-       }, {
-        "id": 2,
-        "name": "Incendies"
-       }, {
-        "id": 3,
-        "name": "Rang de Basanti"
-       }, {
-        "id": 4,
-        "name": "Finding Nemo"
-       }]
-
-       if (i < films.length) {
-           res.send(films[i])
-       } else {
-           'No movie exists with this id'
-       } 
-
-})
-
-
-
-    
+  res.send(players);
+});
 
 module.exports = router;
 
-// adding this comment for no reason 
+// adding this comment for no reason

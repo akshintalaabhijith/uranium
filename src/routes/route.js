@@ -2,11 +2,15 @@ const express = require('express');
 
 const router = express.Router();
 
+//Problem 1
+
 router.get('/movies', function (req, res) {
     let movies = ['rand de basnasti', 'the shining', 'lord of the rings', 'bartman begins']
 
     res.send(movies)
 })
+
+//Problem 2&3
 
 router.get('/movies/:indexNumber', function (req, res) {
     let movies = ['rand de basnasti', 'the shining', 'lord of the rings', 'bartman begins']
@@ -18,6 +22,8 @@ router.get('/movies/:indexNumber', function (req, res) {
         'Enter a valid indexNumber'
     }
 })
+
+//problem 4
 
 router.get('/films', function (req, res) {
     
@@ -39,6 +45,8 @@ router.get('/films', function (req, res) {
            res.send(films)
 
 })
+
+//problem 5
 
 router.get('/films/:filmId', function (req, res) {
     let id = req.params.filmId

@@ -5,12 +5,15 @@ const bookSchema = new mongoose.Schema( {
         type: String,
         required: true
     },
-    authorName: String,
-    category: {
-        type: String,
-        enum: ["fiction","non-fiction"]
+    price: {
+        indianPrice: String,
+        europeanPrice: String
     },
-    year: Number
+    year: Number,
+    tags: [String],
+    authorName: String,
+    totalPages: Number,
+    stockAvailable: Boolean
 }, { timestamps: true });
 
 module.exports = mongoose.model('Book', bookSchema) 

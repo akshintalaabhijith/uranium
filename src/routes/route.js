@@ -1,21 +1,29 @@
 const express = require('express');
 const router = express.Router();
 // const bookModel= require("../models/bookModel.js")
-const BookController= require("../controllers/bookController")
+const BatchController= require("../controllers/batchController")
 
-router.post("/createBook", BookController.createBook)
+router.post("/createBatch", BatchController.createBatch)
 
-router.get("/bookList", BookController.bookList)
+router.post("/createDeveloper", BatchController.createDeveloper)
 
-router.post("/getBooksInYear", BookController.getBooksInYear)
+router.get("/scholarsDev", BatchController.scholarsDev)
 
-router.post("/getParticularBooks", BookController.getParticularBooks)
+router.get("/developers", BatchController.developers)
 
-router.get("/getXINRBooks", BookController.getXINRBooks)
 
-router.get("/getRandomBooks", BookController.getRandomBooks)
 
-router.get("/getBooksData", BookController.getBooksData)
+// router.get("/bookList", BookController.bookList)
+
+// router.post("/getBooksInYear", BookController.getBooksInYear)
+
+// router.post("/getParticularBooks", BookController.getParticularBooks)
+
+// router.get("/getXINRBooks", BookController.getXINRBooks)
+
+// router.get("/getRandomBooks", BookController.getRandomBooks)
+
+// router.get("/getBooksData", BookController.getBooksData)
 
 
 module.exports = router;
